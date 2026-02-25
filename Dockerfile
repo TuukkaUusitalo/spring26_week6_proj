@@ -5,11 +5,9 @@ WORKDIR /app
 
 COPY pom.xml .
 
+COPY . /app
 
-COPY src ./src
+RUN mvn package
 
-
-RUN mvn clean package
-
-CMD ["java", "-jar", "target/lecture25_02_26-1.0-SNAPSHOT.jar"]
+CMD ["java", "jar", "target/lecture25_02_26-1.0-SNAPSHOT.jar"]
 
