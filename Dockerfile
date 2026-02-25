@@ -5,8 +5,15 @@ WORKDIR /app
 
 COPY pom.xml .
 
-COPY . /app
 
-RUN mvn package
+COPY src ./src
 
-CMD ["java", "jar", "target/lecture25_02_26-1.0-SNAPSHOT.jar"]
+RUN mvn -B -U clean package
+
+# 2: Runtime stage
+FROM eclipse-temurin:17-jre
+WORKDIR /app
+
+COPY --from=build /app/target/lecture25_02_26-1.0-SNAPSHOT.jar /app/app.jar
+
+CMD ["java", "-jar", "/app/app.jar"]
