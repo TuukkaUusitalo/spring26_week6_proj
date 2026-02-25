@@ -34,7 +34,7 @@
 
     <build>
         <!-- finalName controls the produced jar name; keep default or set explicitly -->
-        <finalName>${project.artifactId}-${project.version}</finalName>
+        <finalName>calc</finalName>
         <plugins>
             <!-- Maven Compiler Plugin -->
             <plugin>
