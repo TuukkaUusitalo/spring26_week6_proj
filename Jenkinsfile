@@ -6,7 +6,8 @@ pipeline {
     }
 
     environment {
-        PATH = "/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:${PATH}"
+        //PATH = "/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:${PATH}"
+        PATH = "/usr/local/bin:${PATH}"
         DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
         DOCKERHUB_REPO = 'tuusitalo/lecture25_02_2026'
         DOCKER_IMAGE_TAG = 'latest'
