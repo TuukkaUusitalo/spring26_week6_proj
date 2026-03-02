@@ -1,14 +1,13 @@
 FROM maven:3.9.6-eclipse-temurin-17 AS build
+LABEL authors="tuusitalo"
 WORKDIR /app
 
 COPY pom.xml .
-COPY src ./src
 
-RUN mvn clean package -DskipTests
+COPY . /app
 
-FROM eclipse-temurin:17-jre
-WORKDIR /app
+RUN mvn package
 
-COPY --from=build /app/target/calc.jar app.jar
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+CMD ["java", "-jar", "target/calc.jar"]
