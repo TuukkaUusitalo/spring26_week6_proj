@@ -9,5 +9,5 @@ COPY . /app
 
 RUN mvn package
 
-CMD ["java", "jar", "target/calc.jar"]
+CMD ["java", "-jar", "target/calc.jar"]
 
